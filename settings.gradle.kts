@@ -24,6 +24,14 @@ val baseVersion = file("build.xml").readLines()
         .findFirst()
         .get()
 
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+
+    plugins.id("com.gradle.enterprise.test-distribution") version "1.0.1"
+}
+
 plugins {
     id("com.gradle.enterprise") version "3.3.3"
 }
