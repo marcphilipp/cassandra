@@ -41,6 +41,7 @@
 import org.apache.cassandra.gradle.commonCassandraPom
 import org.apache.cassandra.gradle.configureEach
 import org.apache.cassandra.gradle.generateParentPom
+import org.apache.cassandra.gradle.property
 import org.apache.cassandra.gradle.withJUnitPlatform
 import org.apache.cassandra.gradle.testrunner.TestRunnerTaskExtension
 import org.apache.cassandra.gradle.util.JavaAgentArgumentProvider
@@ -56,7 +57,8 @@ plugins {
     id("org.nosphere.apache.rat") version "0.6.0"
     idea
     eclipse
-    id("org.jetbrains.gradle.plugin.idea-ext") version "0.7"
+    id("org.jetbrains.gradle.plugin.idea-ext")
+    id("com.gradle.enterprise.test-distribution") version "1.0.1"
     id("org.caffinitas.gradle.aggregatetestresults") version "0.1"
     id("org.caffinitas.gradle.compilecommand") version "0.1"
     id("org.caffinitas.gradle.jflex") version "0.1"
@@ -471,6 +473,17 @@ tasks.configureEach<Test>("test", "testCdc", "testCompressionLZ4", "testCompress
 
 tasks.configureEach<Test>("testUnit", "test", "testLong", "testBurn", "testMemory", "testDistributed", "testFqltool", "testStress", "testCdc", "testCompressionLZ4", "testCompressionZst") {
     filter.isFailOnNoMatchingTests = false
+    distribution {
+        enabled.set(project.hasProperty("withDistribution"))
+        if (project.hasProperty("noLocalExecutors"))
+            maxLocalExecutors.set(0)
+        maxRemoteExecutors.set(project.property("remoteExecutors", "20").toString().toInt())
+    }
+    description += """
+        - testRerun : presence of this property disables caching of test-results (i.e. test will always be run)
+        - withDistribution : presence of this property enables Gradle Enterprise Distributed testing
+        - noLocalExecutors : presence of this property disables running tests locally
+        - remoteExecutors : number of test-agents for distributed testing (defaults to 20)"""
 }
 
 tasks.register<DefaultTask>("testAll") {
