@@ -465,7 +465,7 @@ val testUnit by tasks.registering(Test::class) {
     }
 }
 tasks.configureEach<Test>("test", "testCdc", "testCompressionLZ4", "testCompressionZst") {
-    dependsOn(testUnit)
+//    dependsOn(testUnit)
     withJUnitPlatform {
         excludeTags("org.apache.cassandra.test.tags.Unit")
     }
