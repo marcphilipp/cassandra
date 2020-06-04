@@ -64,7 +64,7 @@ plugins {
     id("org.caffinitas.gradle.jflex") version "0.1"
     id("org.caffinitas.gradle.antlr") version "0.1"
     id("org.caffinitas.gradle.testrerun") version "0.1"
-    id("org.caffinitas.gradle.testsummary") version "0.1.1"
+//    id("org.caffinitas.gradle.testsummary") version "0.1.1"
     id("org.caffinitas.gradle.microbench") version "0.1"
     // plugins in buildSrc/
     id("org.apache.cassandra.testvariants")
