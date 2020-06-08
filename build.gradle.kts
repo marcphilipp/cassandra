@@ -478,7 +478,7 @@ tasks.configureEach<Test>("testUnit", "test", "testLong", "testBurn", "testMemor
         enabled.set(project.hasProperty("withDistribution"))
         if (project.hasProperty("noLocalExecutors"))
             maxLocalExecutors.set(0)
-        maxRemoteExecutors.set(project.property("remoteExecutors", "20").toString().toInt())
+        maxRemoteExecutors.set(project.property("remoteExecutors", "28").toString().toInt())
     }
     description += """
         - testRerun : presence of this property disables caching of test-results (i.e. test will always be run)
