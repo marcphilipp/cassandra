@@ -27,9 +27,12 @@ val baseVersion = file("build.xml").readLines()
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        maven {
+             url = uri("https://repo.gradle.org/gradle/enterprise-libs-release-candidates-local/")
+        }
     }
 
-    plugins.id("com.gradle.enterprise.test-distribution") version "1.0.1"
+    plugins.id("com.gradle.enterprise.test-distribution") version "1.1-rc-2"
     plugins.id("org.jetbrains.gradle.plugin.idea-ext") version "0.7"
 }
 
