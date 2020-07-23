@@ -58,7 +58,7 @@ plugins {
     idea
     eclipse
     id("org.jetbrains.gradle.plugin.idea-ext")
-    id("com.gradle.enterprise.test-distribution")
+    id("com.gradle.enterprise.test-distribution") version "1.1-rc-2"
     id("org.caffinitas.gradle.aggregatetestresults") version "0.1"
     id("org.caffinitas.gradle.compilecommand") version "0.1"
     id("org.caffinitas.gradle.jflex") version "0.1"

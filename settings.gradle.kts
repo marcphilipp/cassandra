@@ -32,7 +32,7 @@ pluginManagement {
         }
     }
 
-    plugins.id("com.gradle.enterprise.test-distribution") version "1.0.3-rc-1"
+    plugins.id("com.gradle.enterprise.test-distribution") version "1.1-rc-2"
     plugins.id("org.jetbrains.gradle.plugin.idea-ext") version "0.7"
 }
 
