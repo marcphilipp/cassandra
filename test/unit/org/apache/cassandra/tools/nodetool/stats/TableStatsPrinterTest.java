@@ -27,11 +27,13 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
 import org.apache.cassandra.test.tags.Unit;
 
+@Ignore
 @Category(Unit.class)
 public class TableStatsPrinterTest extends TableStatsTestBase
 {

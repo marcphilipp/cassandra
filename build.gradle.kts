@@ -473,7 +473,7 @@ tasks.configureEach<Test>("test", "testCdc", "testCompressionLZ4", "testCompress
 
 tasks.configureEach<Test>("testUnit", "test", "testLong", "testBurn", "testMemory", "testDistributed", "testFqltool", "testStress", "testCdc", "testCompressionLZ4", "testCompressionZst") {
     filter.isFailOnNoMatchingTests = false
-    filter.includeTestsMatching("org.apache.cassandra.cql3.*")
+    // filter.includeTestsMatching("org.apache.cassandra.cql3.*")
     distribution {
         enabled.set(project.hasProperty("withDistribution"))
         if (project.hasProperty("noLocalExecutors"))
