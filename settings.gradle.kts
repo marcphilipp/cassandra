@@ -30,9 +30,19 @@ pluginManagement {
         maven {
              url = uri("https://repo.gradle.org/gradle/enterprise-libs-release-candidates-local/")
         }
+        maven {
+            url = uri("https://repo.gradle.org/gradle/enterprise-libs-snapshots-local")
+            credentials {
+                username = settings.extra["enterprise.snapshots.username"].toString()
+                password = settings.extra["enterprise.snapshots.password"].toString()
+            }
+            authentication {
+                create<BasicAuthentication>("basic")
+            }
+        }
     }
 
-    plugins.id("com.gradle.enterprise.test-distribution") version "1.1-rc-2"
+    plugins.id("com.gradle.enterprise.test-distribution") version "1.1-branch-release-20200723165313"
     plugins.id("org.jetbrains.gradle.plugin.idea-ext") version "0.7"
 }
 
